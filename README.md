@@ -77,7 +77,7 @@ python logistic_eval.py \
   --device cuda:0 \
   --pretrained $directory_containing_your_model \
   --fname $model_filename \
-  --model-name vit_small \
+  --model-name deit_small \
   --penalty l2 \
   --lambd 0.0025
 ```

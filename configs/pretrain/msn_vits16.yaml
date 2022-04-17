@@ -22,7 +22,7 @@ data:
   focal_views: 10
   root_path: /datasets01/
 logging:
-  folder: /checkpoint/massran/msn_os_logs/
+  folder: /checkpoint/msn_os_logs/
   write_tag: msn-experiment-1
 meta:
   bottleneck: 1
