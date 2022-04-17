@@ -111,7 +111,8 @@ def main(
     subset_tag = '-'.join(subset_path.split('/')).split('.txt')[0]
     train_embs_path = os.path.join(pretrained, f'train-features-{subset_tag}-{fname}')
     test_embs_path = os.path.join(pretrained, f'val-features-{fname}')
-    logger.info(train_embs_path, test_embs_path)
+    logger.info(train_embs_path)
+    logger.info(test_embs_path)
 
     pretrained = os.path.join(pretrained, fname)
 
