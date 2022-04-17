@@ -23,9 +23,8 @@ def init_msn_loss(
     """
     Make unsupervised MSN loss
 
-    :param multicrop: number of small multi-crop views
+    :num_views: number of anchor views
     :param tau: cosine similarity temperature
-    :param T: target sharpenning temperature
     :param me_max: whether to perform me-max regularization
     :param return_preds: whether to return anchor predictions
     """
