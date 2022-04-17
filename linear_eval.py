@@ -93,7 +93,6 @@ def main(args):
         batch_size = 256
     else:
         batch_size = 128
-        unlabeled_frac = 0.0
         load_checkpoint = True
         num_epochs = 1
 
@@ -231,7 +230,6 @@ def main(args):
                 'classifier': linear_classifier.state_dict(),
                 'opt': optimizer.state_dict(),
                 'epoch': epoch + 1,
-                'unlabel_prob': unlabeled_frac,
                 'world_size': world_size,
                 'best_top1_acc': best_acc,
                 'batch_size': batch_size,
