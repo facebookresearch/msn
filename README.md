@@ -72,7 +72,7 @@ Based on your specifications in your experiment's config file, our implementatio
 To run logistic regression on a pre-trained model using some labeled training split you can directly call the script from the command line:
 ```
 python logistic_eval.py \
-  --subset-path imagenet_subsets/5imgs_class.txt \
+  --subset-path imagenet_subsets1/5imgs_class.txt \
   --root-path /datasets/ --image-folder imagenet_full_size/061417/ \
   --device cuda:0 \
   --pretrained $directory_containing_your_model \
