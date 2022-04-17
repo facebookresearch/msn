@@ -45,8 +45,8 @@ All experiment parameters are specified in config files (as opposed to command-l
 ### Single-GPU training
 Our implementation starts from the [main.py](main.py), which parses the experiment config file and runs the msn pre-training locally on a multi-GPU (or single-GPU) machine. For example, to run on GPUs "0","1", and "2" on a local machine, use the command:
 ```
-python main.py
-  --fname configs/pretrain/msn_vits16.yaml
+python main.py \
+  --fname configs/pretrain/msn_vits16.yaml \
   --devices cuda:0 cuda:1 cuda:2
 ```
 
@@ -55,11 +55,11 @@ In the multi-GPU setting, the implementation starts from [main_distributed.py](m
 
 For example, to pre-train with MSN on 16 GPUs using the pre-training experiment configs specificed inside [configs/pretrain/msn_vits16.yaml](configs/pretrain/msn_vits16.yaml), run:
 ```
-python main_distributed.py
-  --fname configs/pretrain/msn_vits16.yaml
-  --folder $path_to_save_submitit_logs
-  --partition $slurm_partition
-  --nodes 2 --tasks-per-node 8
+python main_distributed.py \
+  --fname configs/pretrain/msn_vits16.yaml \
+  --folder $path_to_save_submitit_logs \
+  --partition $slurm_partition \
+  --nodes 2 --tasks-per-node 8 \
   --time 1000
 ```
 
@@ -71,14 +71,14 @@ Based on your specifications in your experiment's config file, our implementatio
 
 To run logistic regression on a pre-trained model using some labeled training split you can directly call the script from the command line:
 ```
-python logistic_eval.py
-  --subset-path imagenet_subsets/5imgs_class.txt
-  --root-path /datasets/ --image-folder imagenet_full_size/061417/
-  --device cuda:0
-  --pretrained $directory_containing_your_model
-  --fname $model_filename
-  --model-name vit_small
-  --penalty l2
+python logistic_eval.py \
+  --subset-path imagenet_subsets/5imgs_class.txt \
+  --root-path /datasets/ --image-folder imagenet_full_size/061417/ \
+  --device cuda:0 \
+  --pretrained $directory_containing_your_model \
+  --fname $model_filename \
+  --model-name vit_small \
+  --penalty l2 \
   --lambd 0.0025
 ```
 
@@ -87,12 +87,12 @@ To run linear evaluation on the entire ImageNet-1K dataset, use the `main_distri
 
 For example, to evaluate MSN on 32 GPUs using the linear evaluation config specificed inside [configs/eval/lineval_msn_vits16.yaml](configs/eval/lineval_msn_vits16.yaml), run:
 ```
-python main_distributed.py
-  --linear-eval
-  --fname configs/eval/lineval_msn_vits16.yaml
-  --folder $path_to_save_submitit_logs
-  --partition $slurm_partition
-  --nodes 4 --tasks-per-node 8
+python main_distributed.py \
+  --linear-eval \
+  --fname configs/eval/lineval_msn_vits16.yaml \
+  --folder $path_to_save_submitit_logs \
+  --partition $slurm_partition \
+  --nodes 4 --tasks-per-node 8 \
   --time 1000
 ```
 
