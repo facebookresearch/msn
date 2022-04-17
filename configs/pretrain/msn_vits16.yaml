@@ -1,0 +1,47 @@
+criterion:
+  ent_weight: 0.0
+  final_sharpen: 0.25
+  me_max: true
+  memax_weight: 1.0
+  num_proto: 1024
+  start_sharpen: 0.25
+  temperature: 0.1
+  batch_size: 64
+  use_ent: true
+  use_sinkhorn: true
+data:
+  color_jitter_strength: 0.5
+  pin_mem: true
+  num_workers: 10
+  image_folder: imagenet_full_size/061417/
+  label_smoothing: 0.0
+  patch_drop: 0.15
+  rand_size: 224
+  focal_size: 96
+  rand_views: 1
+  focal_views: 10
+  root_path: /datasets01/
+logging:
+  folder: /checkpoint/massran/msn_os_logs/
+  write_tag: msn-experiment-1
+meta:
+  bottleneck: 1
+  copy_data: false
+  drop_path_rate: 0.0
+  hidden_dim: 2048
+  load_checkpoint: false
+  model_name: deit_small
+  output_dim: 256
+  read_checkpoint: null
+  use_bn: true
+  use_fp16: false
+  use_pred_head: false
+optimization:
+  clip_grad: 3.0
+  epochs: 800
+  final_lr: 1.0e-06
+  final_weight_decay: 0.4
+  lr: 0.001
+  start_lr: 0.0002
+  warmup: 15
+  weight_decay: 0.04
