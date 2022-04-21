@@ -72,7 +72,7 @@ parser.add_argument(
     help='image directory inside root_path')
 parser.add_argument(
     '--subset-path', type=str,
-    default='imagenet_subsets1/5imgs_class.txt',
+    default=None,
     help='name of dataset to evaluate on')
 
 logging.basicConfig()
@@ -108,7 +108,7 @@ def main(
 
     # -- Define file names used to save computed embeddings (for efficient
     # -- reuse if running the script more than once)
-    subset_tag = '-'.join(subset_path.split('/')).split('.txt')[0]
+    subset_tag = '-'.join(subset_path.split('/')).split('.txt')[0] if subset_path is not None else 'imagenet_subses1-100percent'
     train_embs_path = os.path.join(pretrained, f'train-features-{subset_tag}-{fname}')
     test_embs_path = os.path.join(pretrained, f'val-features-{fname}')
     logger.info(train_embs_path)
