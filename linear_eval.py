@@ -121,14 +121,22 @@ def main(args):
     logger.info(f'initialized data-loader (ipe {ipe})')
 
     # -- make val data transforms and data loaders/samples
+    val_transform = transforms.Compose([
+        transforms.Resize(size=256),
+        transforms.CenterCrop(size=224),
+        transforms.ToTensor(),
+        transforms.Normalize(
+            (0.485, 0.456, 0.406),
+            (0.229, 0.224, 0.225))])
     val_data_loader, val_dist_sampler = init_data(
-        transform=transform,
+        transform=val_transform,
         batch_size=batch_size,
         world_size=world_size,
         rank=rank,
         root_path=root_path,
         image_folder=image_folder,
         training=False,
+        drop_last=False,
         copy_data=copy_data)
     logger.info(f'initialized val data-loader (ipe {len(val_data_loader)})')
 
@@ -226,7 +234,7 @@ def main(args):
         if training and (rank == 0) and ((best_acc is None) or (best_acc < val_top1)):
             best_acc = val_top1
             save_dict = {
-                'teacher': encoder.state_dict(),
+                'target_encoder': encoder.state_dict(),
                 'classifier': linear_classifier.state_dict(),
                 'opt': optimizer.state_dict(),
                 'epoch': epoch + 1,
