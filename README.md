@@ -10,7 +10,6 @@ MSN is a self-supervised learning framework that leverages the idea of mask-deno
 
 ### Low-shot evaluation on ImageNet-1K
 
-
 <p align="center">
 <img src="https://user-images.githubusercontent.com/7530871/163032763-7a467588-c16c-42f2-ac2e-8623d35f4db3.png" width="75%">
 </p>
@@ -29,7 +28,29 @@ We can use the RCDM framework of [Bordes et al., 2021](https://arxiv.org/abs/211
 </sub>
 
 ## Pre-trained models
-Coming soon!
+
+<table>
+  <tr>
+    <td> ViT Small [16x16] </td>
+    <td><a href="https://dl.fbaipublicfiles.com/msn/vits16_800ep.pth.tar">download [800 epochs]</a></td>
+  </tr>
+  <tr>
+    <td> ViT Base [16x16] </td>
+    <td><a href="https://dl.fbaipublicfiles.com/msn/vitb16_600ep.pth.tar">download [600 epochs]</a></td>
+  </tr>
+  <tr>
+    <td> ViT Large [16x16] </td>
+    <td><a href="https://dl.fbaipublicfiles.com/msn/vitl16_600ep.pth.tar">download [600 epochs]</a></td>
+  </tr>
+  <tr>
+    <td> ViT Base [4x4] </td>
+    <td><a href="https://dl.fbaipublicfiles.com/msn/vitb4_300ep.pth.tar">download [300 epochs]</a></td>
+  </tr>
+  <tr>
+    <td> ViT Large [7x7] </td>
+    <td><a href="https://dl.fbaipublicfiles.com/msn/vitl7_200ep.pth.tar">download [200 epochs]</a></td>
+  </tr>
+</table>
 
 ## Running MSN self-supervised pre-training
 
